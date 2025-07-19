@@ -61,6 +61,10 @@ CHANNEL_ID = "-1002898168031"
 CHANNEL_LINK = "https://t.me/botaparat"
 
 
+@bot.message_handler(commands=['support'])
+def send_support(message):
+    bot.send_message(message.chat.id, "برای ارتباط با پشتیبانی کلیک کنید:\n👉 https://t.me/AmirRezaATT")
+
 @bot.message_handler(commands=['start'])
 def send_welcome(message):
     if not check_subscribe(message):
@@ -120,9 +124,7 @@ def handle_link(message):
                 bot.send_video(message.chat.id, video_file, caption=title)
         except Exception as e:
             bot.send_message(message.chat.id, f"❌ خطایی رخ داد:\n{e}")
-    else:
-        bot.send_message(message.chat.id, "لطفاً از دکمه‌های ربات استفاده کنید.")
-
+    
 
 
 
